@@ -20,14 +20,6 @@ router.get("/usuario/meusagendamentos", usuarioAuth, (req, res) => {
 
         });
     });
-    // Agendamento.findAll({ raw: true }).then(agendamentos => {
-    //     res.render("usuario/meusagendamentos", {
-    //         agendamentos: agendamentos
-    //     });
-    // }).catch(error => {
-    //     console.log(error);
-    //     res.redirect("/usuario/agendamento");
-    // });
 });
 
 router.post("/agendamento", (req, res) => {

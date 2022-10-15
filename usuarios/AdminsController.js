@@ -1,6 +1,9 @@
 const express = require("express");
 const router = express.Router();
 
+const Agendamento = require("../agendamentos/Agendamento");
+const Usuario = require("../usuarios/Usuario")
+
 const adminAuth = require("../middlewares/adminAuth");
 
 router.get("/usuario/admin/index", adminAuth, (req, res) => {
@@ -12,7 +15,14 @@ router.get("/usuario/admin/produtos", adminAuth, (req, res) => {
 });
 
 router.get("/usuario/admin/consultar_agendamentos", adminAuth, (req, res) => {
-    res.render("usuarios/admin/adm_clienteAgendamento");
+    Agendamento.findAll({ 
+        include: [{model: Usuario}]
+     }).then(agendamentos => {
+        res.render("usuarios/admin/adm_clienteAgendamento", {
+            agendamentos: agendamentos,
+
+        });
+    });
 });
 
 router.get("/usuario/admin/cadastrar_produto", adminAuth, (req, res) => {

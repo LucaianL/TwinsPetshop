@@ -32,18 +32,19 @@
         <input type="date" id="data">
     </div>
 
+    <% agendamentos.forEach(agendamento => { %>
     <div class="card mx-auto w-50 my-4">
         <div class="card-body">
             <p>Nome do cliente:</p>
-            <p>Telefone:</p>
-            <p>Tipo do pet:</p>
-            <p>Nome do pet:</p>
-            <p>Obs:</p>
-            <p>Serviço:</p>
-            <p>Data:</p>
-            <p>Hora:</p>
+            <p>Telefone: </p>
+            <p>Tipo do pet: <%= agendamento.tipoPet %></p>
+            <p>Nome do pet: <%= agendamento.nomePet %></p>
+            <p>Obs: <%= agendamento.observacoes %></p>
+            <p>Serviço: <%= agendamento.servico %></p>
+            <p>Horário: <%= agendamento.horario %></p>
         </div>
     </div>
+    <% }); %>
 
 </body>
 
