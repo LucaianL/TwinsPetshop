@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento Twins Petshop - Tudo para o seu pet!</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/style-agendamento.css">
+    <link rel="stylesheet" href="/css/style-menu.css">
+    <link rel="stylesheet" href="/css/style-fonts.css">
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <%- include('../../partials/navbarSair.ejs'); %>
+
+
+    <main>
+        <h1 class="text-center p-2 m-3 titulos">Agendamento de serviços</h1>
+        <form method="POST" action="/agendamento" class="textos">
+            <div class="text-center p-2 my-4">
+                <div class="d-inline-block">
+                    <label for="tipo-pet" class="form-label">Tipo do Pet:</label>
+                    <select name="tipoPet" id="tipo-pet" class="form-select">
+                        <option value="cachorro">Cachorro</option>
+                        <option value="gato">Gato</option>
+                    </select>
+                </div>
+
+                <div class="d-inline-block">
+                    <label for="nome-pet" class="form-label">Nome do Pet:</label>
+                    <input name="nomePet" type="text" class="form-control" id="nome-pet">
+                </div>
+
+                <div class="d-inline-block">
+                    <label for="servico" class="form-label">Serviço:</label>
+                    <select name="servico" id="servico" class="form-select">
+                        <option value="banho">Banho</option>
+                        <option value="tosa">Tosa</option>
+                        <option value="t-b">Tosa + Banho</option>
+                        <option value="higiene">Higienização completa</option>
+                    </select>
+                </div>
+
+                <div class="d-inline-block w-50">
+                    <label for="obs-pet" class="form-label">Observações:</label>
+                    <input name="observacoes" type="text" class="form-control w-100" id="obs-pet">
+                </div>
+            </div>
+
+            <div id="d-semana">
+                <p class="text-center">
+                    <label class="form-label">Escolha o horário de preferência:</label> <br>
+                    <button class="btn btn-success btn-sm mx-3 px-3 btn-semana" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#segunda" aria-expanded="true" aria-controls="segunda">Segunda-Feira</button>
+                    <button class="btn btn-success btn-sm mx-3 px-3 btn-semana" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#terca" aria-expanded="false" aria-controls="terca">Terça-Feira</button>
+                    <button class="btn btn-success btn-sm mx-3 px-3 btn-semana" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#quarta" aria-expanded="false" aria-controls="quarta">Quarta-Feira</button>
+                    <button class="btn btn-success btn-sm mx-3 px-3 btn-semana" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#quinta" aria-expanded="false" aria-controls="quinta">Quinta-Feira</button>
+                    <button class="btn btn-success btn-sm mx-3 px-3 btn-semana" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#sexta" aria-expanded="false" aria-controls="sexta">Sexta-Feira</button>
+                </p>
+
+                <div class="collapse" id="segunda" data-bs-parent="#d-semana">
+                    <div class="text-center">
+                        <h3 class="gradient-custom p-1 shadow-sm">Segunda-Feira</h3>
+                        <div class="d-inline-block px-5">
+                            <h3>Horários disponíveis &bull; Manhã</h3>
+                            <div>
+                                <input type="radio" name="horario" id="8-s" value="08:00 - Segunda-Feira">
+                                <label for="8-s">08:00</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="horario" id="9-s" value="09:00 - Segunda-Feira">
+                                <label for="9-s">09:00</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="horario" id="10-s" value="10:00 - Segunda-Feira">
+                                <label for="10-s">10:00</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="horario" id="11-s" value="11:00 - Segunda-Feira">
+                                <label for="11-s">11:00</label>
+                            </div>
+                        </div>
+                        <div class="d-inline-block px-5">
+                            <h3>Horários disponíveis &bull; Tarde</h3>
+                            <div>
+                                <input type="radio" name="horario" id="14-s" value="14:00 - Segunda-Feira">
+                                <label for="14-s">14:00</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="horario" id="15-s" value="15:00 - Segunda-Feira">
+                                <label for="15-s">15:00</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="horario" id="16-s" value="16:00 - Segunda-Feira">
+                                <label for="16-s">16:00</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="horario" id="17-s" value="17:00 - Segunda-Feira">
+                                <label for="17-s">17:00</label>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="collapse" id="terca" data-bs-parent="#d-semana">
+                    <div class="text-center">
+                        <h3 class="gradient-custom p-1 shadow-sm">Terça-Feira</h3>
+                        <div class="d-inline-block px-5">
+                            <h3>Horários disponíveis &bull; Manhã</h3>
+                            <div>
+                                <input type="radio" name="horario" id="8-t" value="08:00 - terca-Feira">
+                                <label for="8-t">08:00</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="horario" id="9-t" value="09:00 - terca-Feira">
+                                <label for="9-t">09:00</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="horario" id="10-t" value="10:00 - terca-Feira">
+                                <label for="10-t">10:00</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="horario" id="11-t" value="11:00 - terca-Feira">
+                                <label for="11-t">11:00</label>
+                            </div>
+                        </div>
+                        <div class="d-inline-block px-5">
+                            <h3>Horários disponíveis &bull; Tarde</h3>
+                            <div>
+                                <input type="radio" name="horario" id="14-t" value="14:00 - terca-Feira">
+                                <label for="14-t">14:00</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="horario" id="15-t" value="15:00 - terca-Feira">
+                                <label for="15-t">15:00</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="horario" id="16-t" value="16:00 - terca-Feira">
+                                <label for="16-t">16:00</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="horario" id="17-t" value="17:00 - terca-Feira">
+                                <label for="17-t">17:00</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapse" id="quarta" data-bs-parent="#d-semana">
+                    <div class="text-center">
+                        <h3 class="gradient-custom p-1 shadow-sm">Quarta-Feira</h3>
+                        <div class="d-inline-block px-5">
+                            <h3>Horários disponíveis &bull; Manhã</h3>
+                            <div>
+                                <input type="radio" name="horario" id="8-q" value="08:00 - quarta-Feira">
+                                <label for="8-q">08:00</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="horario" id="9-q" value="09:00 - quarta-Feira">
+                                <label for="9-q">09:00</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="horario" id="10-q" value="10:00 - quarta-Feira">
+                                <label for="10-q">10:00</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="horario" id="11-q" value="11:00 - quarta-Feira">
+                                <label for="11-q">11:00</label>
+                            </div>
+                        </div>
+                        <div class="d-inline-block px-5">
+                            <h3>Horários disponíveis &bull; Tarde</h3>
+                            <div>
+                                <input type="radio" name="horario" id="14-q" value="14:00 - quarta-Feira">
+                                <label for="14-q">14:00</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="horario" id="15-q" value="15:00 - quarta-Feira">
+                                <label for="15-q">15:00</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="horario" id="16-q" value="16:00 - quarta-Feira">
+                                <label for="16-q">16:00</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="horario" id="17-q" value="17:00 - quarta-Feira">
+                                <label for="17-q">17:00</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapse" id="quinta" data-bs-parent="#d-semana">
+                    <div class="text-center">
+                        <h3 class="gradient-custom p-1 shadow-sm">Quinta-Feira</h3>
+                        <div class="d-inline-block px-5">
+                            <h3>Horários disponíveis &bull; Manhã</h3>
+                            <div>
+                                <input type="radio" name="horario" id="8-qi" value="08:00 - quinta-Feira">
+                                <label for="8-qi">08:00</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="horario" id="9-qi" value="09:00 - quinta-Feira">
+                                <label for="9-qi">09:00</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="horario" id="10-qi" value="10:00 - quinta-Feira">
+                                <label for="10-qi">10:00</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="horario" id="11-qi" value="11:00 - quinta-Feira">
+                                <label for="11-qi">11:00</label>
+                            </div>
+                        </div>
+                        <div class="d-inline-block px-5">
+                            <h3>Horários disponíveis &bull; Tarde</h3>
+                            <div>
+                                <input type="radio" name="horario" id="14-qi" value="14:00 - quinta-Feira">
+                                <label for="14-qi">14:00</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="horario" id="15-qi" value="15:00 - quinta-Feira">
+                                <label for="15-qi">15:00</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="horario" id="16-qi" value="16:00 - quinta-Feira">
+                                <label for="16-qi">16:00</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="horario" id="17-qi" value="17:00 - quinta-Feira">
+                                <label for="17-qi">17:00</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapse" id="sexta" data-bs-parent="#d-semana">
+                    <div class="text-center">
+                        <h3 class="gradient-custom p-1 shadow-sm">Sexta-Feira</h3>
+                        <div class="d-inline-block px-5">
+                            <h3>Horários disponíveis &bull; Manhã</h3>
+                            <div>
+                                <input type="radio" name="horario" id="8-sx" value="08:00 - sexta-Feira">
+                                <label for="8-sx">08:00</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="horario" id="9-sx" value="09:00 - sexta-Feira">
+                                <label for="9-sx">09:00</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="horario" id="10-sx" value="10:00 - sexta-Feira">
+                                <label for="10-sx">10:00</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="horario" id="11-sx" value="11:00 - sexta-Feira">
+                                <label for="11-sx">11:00</label>
+                            </div>
+                        </div>
+                        <div class="d-inline-block px-5">
+                            <h3>Horários disponíveis &bull; Tarde</h3>
+                            <div>
+                                <input type="radio" name="horario" id="14-sx" value="14:00 - sexta-Feira">
+                                <label for="14-sx">14:00</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="horario" id="15-sx" value="15:00 - sexta-Feira">
+                                <label for="15-sx">15:00</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="horario" id="16-sx" value="16:00 - sexta-Feira">
+                                <label for="16-sx">16:00</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="horario" id="17-sx" value="17:00 - sexta-Feira">
+                                <label for="17-sx">17:00</label>
+                            </div>
+                        </div>
+                    </div>
+
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary btn-lg m-3 px-5">Agendar</button>
+            </div>
+            
+            <div class="text-center">
+                <img src="img/alert-triangle.svg" class="d-inline-block p-1">
+                <p class="d-inline-block text-danger fst-italic msg-info">Após clicar no botão "Agendar" enviaremos uma mensagem para seu contato
+                    informado para a confirmação do horário! <br> (A mensagem será enviada apenas em horário comercial)</p>
+            </div>
+        </form>
+    </main>
+
+    <footer>
+        <div class="bg-secondary mb-0 mt-5 p-5 w-100">
+            <img src="img/logo-2.png" alt="" class="w-25 mt-0 mx-5 d-inline-block rodape">
+
+            <div class="mx-5 d-inline-block">
+                <p class="p-1 fs-5 m-0"><a href="index.html" class="text-white text-decoration-none">Início</a></p>
+                <p class="p-1 fs-5 m-0"><a href="catalogo.html" class="text-white text-decoration-none">Catálogo</a>
+                    </li>
+                <p class="p-2 fs-5 m-0"><a href="agendamento.html"
+                        class="text-white text-decoration-none">Agendamento</a></p>
+                <p class="p-2 fs-5 m-0"><a href="doacao.html" class="text-white text-decoration-none">Doação</a></p>
+            </div>
+
+            <div class="text-white mx-5 d-inline-block rodape">
+                <p class="m-1">Dúvidas? Entre em contato:</p>
+                <div>
+                    <img src="/img/o-email.svg" alt="" class="d-inline-block">
+                    <p class="m-1 d-inline-block">atendimento_twinspet@gmail.com</p>
+                </div>
+                <div>
+                    <img src="/img/whatsapp.svg" alt="" class="d-inline-block">
+                    <p class="m-1 d-inline-block">(45) 991835401</p>
+                </div>
+                <div>
+                    <img src="/img/telefone.svg" alt="" class="d-inline-block">
+                    <p class="m-1 d-inline-block">3559-7842</p>
+                </div>
+                <div>
+                    <img src="/img/pin-de-localizacao.svg" alt="" class="d-inline-block">
+                    <p class="m-1 d-inline-block">3901, Rua João Paulo II, Itaipulândia-PR</p>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twins Petshop - Tudo para o seu pet!</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style-index.css">
+    <link rel="stylesheet" href="css/style-menu.css">
+    <link rel="stylesheet" href="css/style-fonts.css">
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    
+    <%- include('partials/navbar.ejs'); %>
+    
+    <main>
+        <div class="sticky-bottom">
+            <link rel="stylesheet"
+                href="https://cdn.positus.global/production/resources/robbu/whatsapp-button/whatsapp-button.css">
+            <a id="robbu-whatsapp-button" target="_blank"
+                href="https://api.whatsapp.com/send?phone=45991465488&text=Bem-vindo">
+                <div class="rwb-tooltip">Dúvidas? Entre em contato</div>
+                <img src="https://cdn.positus.global/production/resources/robbu/whatsapp-button/whatsapp-icon.svg">
+            </a>
+        </div>
+
+        <div id="inicio-slide" class="carousel slide w-100" data-bs-ride="carousel" data-bs-interval="4500">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#inicio-slide" data-bs-slide-to="0" class="active"
+                    aria-current="true"></button>
+                <button type="button" data-bs-target="#inicio-slide" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#inicio-slide" data-bs-slide-to="2"></button>
+                <button type="button" data-bs-target="#inicio-slide" data-bs-slide-to="3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="img/slide 1-tcc.gif" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="img/slide 4-tcc.gif" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="img/slide 2-tcc.gif" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="img/slide 3-tcc.gif" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#inicio-slide" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#inicio-slide" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Próxima</span>
+            </button>
+        </div>
+
+        <div id="sobre">
+            <div class="p-4">
+                <div class="card p-2 m-4 card-texto w-auto border border-0 shadow">
+                    <div class="card-body">
+                        <h3 class="card-title gradient-custom p-2 text-center titulos">Sobre &bull; Twins Petshop</h3>
+                        <p class="textos">O Twins Petshop surgiu em 2019 com o sonho dos irmãos gêmeos Viktor e Gisele
+                            St. Claire,
+                            desde o
+                            início conquistou inúmeros clientes pelo atendimento voltado a
+                            honestidade e carinho. No Twins Petshop seus animais são
+                            tratados da melhor maneira possível, com profissionais especializados que sabem a
+                            necessidade de
+                            cada um.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <div class="card p-2 m-4 d-inline-block card-texto w-auto border border-0 shadow contato-loc">
+                        <div class="card-body">
+                            <h3 class="card-title gradient-custom p-2 text-center titulos">Contato</h3>
+                            <div class="text-start textos">
+                                <div>
+                                    <img src="img/instagram.svg" alt="" class="d-inline-block">
+                                    <p class="m-1 d-inline-block">@petshop_twins_</p>
+                                </div>
+                                <div>
+                                    <img src="img/o-email.svg" alt="" class="d-inline-block">
+                                    <p class="m-1 d-inline-block">atendimento_twinspet@gmail.com</p>
+                                </div>
+                                <div>
+                                    <img src="img/whatsapp.svg" alt="" class="d-inline-block">
+                                    <p class="m-1 d-inline-block">(45) 991835401</p>
+                                </div>
+                                <div>
+                                    <img src="img/telefone.svg" alt="" class="d-inline-block">
+                                    <p class="m-1 d-inline-block">3559-7842</p>
+                                </div>
+                                <div>
+                                    <img src="img/pin-de-localizacao.svg" alt="" class="d-inline-block">
+                                    <p class="m-1 d-inline-block">3901, Rua João Paulo II, Itaipulândia-PR</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="card p-2 m-4 d-inline-block card-texto w-auto border border-0 shadow float-right contato-loc">
+                        <div class="card-body">
+                            <h3 class="card-title gradient-custom p-2 text-center titulos">Localização</h3>
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d902.9772162837561!2d-54.29529817083165!3d-25.138771784917626!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x8780ca7d16e6e276!2zMjXCsDA4JzE5LjYiUyA1NMKwMTcnNDEuMSJX!5e0!3m2!1spt-BR!2sbr!4v1663367015595!5m2!1spt-BR!2sbr"
+                                width="100%" height="auto" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="time" class="text-center">
+            <h1 class="text-center fs-2 mt-5 gradient-custom p-3 mb-0 titulos">Nossa equipe</h1>
+            <div class="textos">
+                <div class="card d-inline-block p-2 m-2 equipe">
+                    <img src="img/viktor.jpg" class="card-img-top img-equipe" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Viktor St. Claire</h5>
+                        <p class="card-text">Co-fundador do Twins Petshop</p>
+                    </div>
+                </div>
+                <div class="card d-inline-block p-2 m-2 equipe">
+                    <img src="img/gisele.jpg" class="card-img-top img-equipe" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Gisele St. Clair</h5>
+                        <p class="card-text">Co-fundadora do Twins Petshop</p>
+                    </div>
+                </div>
+                <hr class="m-3">
+                <div class="card d-inline-block p-2 m-2 equipe">
+                    <img src="img/walter.jpg" class="card-img-top img-equipe" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Walter Water</h5>
+                        <p class="card-text">Banhista e tosador</p>
+                    </div>
+                </div>
+                <div class="card d-inline-block p-2 m-2 equipe">
+                    <img src="img/hudson.jpg" class="card-img-top img-equipe" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Hudson Arantes</h5>
+                        <p class="card-text">Banhista e tosador</p>
+                    </div>
+                </div>
+                <div class="card d-inline-block p-2 m-2 equipe">
+                    <img src="img/rebecca.jpg" class="card-img-top img-equipe" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Rebecca Valentine</h5>
+                        <p class="card-text">Balconista</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="bg-secondary mb-0 mt-5 p-5 w-100">
+            <img src="img/logo-2.png" alt="" class="w-25 mt-0 mx-5 d-inline-block rodape">
+
+            <div class="mx-5 d-inline-block">
+                <p class="p-1 fs-5 m-0"><a href="index.html" class="text-white text-decoration-none">Início</a></p>
+                <p class="p-1 fs-5 m-0"><a href="catalogo.html" class="text-white text-decoration-none">Catálogo</a>
+                    </li>
+                <p class="p-2 fs-5 m-0"><a href="agendamento.html"
+                        class="text-white text-decoration-none">Agendamento</a></p>
+                <p class="p-2 fs-5 m-0"><a href="doacao.html" class="text-white text-decoration-none">Doação</a></p>
+            </div>
+
+            <div class="text-white mx-5 d-inline-block rodape">
+                <p class="m-1">Dúvidas? Entre em contato:</p>
+                <div>
+                    <img src="img/o-email.svg" alt="" class="d-inline-block">
+                    <p class="m-1 d-inline-block">atendimento_twinspet@gmail.com</p>
+                </div>
+                <div>
+                    <img src="img/whatsapp.svg" alt="" class="d-inline-block">
+                    <p class="m-1 d-inline-block">(45) 991835401</p>
+                </div>
+                <div>
+                    <img src="img/telefone.svg" alt="" class="d-inline-block">
+                    <p class="m-1 d-inline-block">3559-7842</p>
+                </div>
+                <div>
+                    <img src="img/pin-de-localizacao.svg" alt="" class="d-inline-block">
+                    <p class="m-1 d-inline-block">3901, Rua João Paulo II, Itaipulândia-PR</p>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+
+</html>
