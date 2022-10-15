@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADM Catálogo - Twins Petshop</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/style-adm-catalogo.css">
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+
+    <div class="bg-dark shadow">
+        <div class="d-inline-block">
+            <a href="/usuario/admin/index"><button class="btn btn-lg btn-secondary m-2">Voltar</button></a>
+        </div>
+        <div class="d-inline-block">
+            <h1 class="fs-2 p-3 text-white m-3">Catálogo</h1>
+        </div>
+    </div>
+
+    <div class="p-3 m-2 text-center">
+        <a href="/usuario/admin/cadastrar_produto"><button class="btn btn-lg w-50 btn-success">Adicionar produto</button></a>
+    </div>
+
+    <div class="p-3">
+        <div class="card w-75 mx-auto">
+            <div class="card-title">
+                <div class="m-1">
+                    <a href="#"><img src="/img/excluir.png" class="img-catalogo-itens"></a>
+                    <a href="/usuario/admin/atualizar_produto"><img src="/img/editar.png" class="img-catalogo-itens"></a>
+                </div>
+                <div class="card-body">
+                    <img src="/img/logo-2.png" class="card-img d-inline" alt="imagem">
+                    <div class="d-inline-block p-2">
+                        <h5 class="card-title">Nome-produto</h5>
+                        <h6 class="card-subtitle p-1">Preço</h6>
+                        <h6 class="card-subtitle p-1">Marca</h6>
+                        <h6 class="card-subtitle p-1">Tipo</h6>
+                        <p class="card-text">descrição</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

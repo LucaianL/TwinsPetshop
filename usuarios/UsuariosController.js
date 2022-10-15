@@ -62,11 +62,11 @@ router.post("/entrar", (req, res) => {
                     email: usuario.email,
                     admin: usuario.admin
                 }
-                // if (usuario.admin == true) {
-                //     res.redirect('/adm');
-                // } else {
+                if (usuario.admin == true) {
+                    res.redirect('/usuario/admin/index');
+                } else {
                 res.redirect("/usuario/index");
-                // }
+                }
             } else {
                 res.redirect("/usuario/entrar");
             }
