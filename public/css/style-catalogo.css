@@ -1,0 +1,25 @@
+.btn-buscar {
+    background-color: white;
+    border-color: #555;
+    width: 10%;
+}
+
+.btn-buscar:hover {
+    background-color: #555;
+    color: white;
+}
+
+#img-busca{
+    width: 2%;
+}
+
+.card-img {
+    width: 25%;
+    float: left;
+    margin: 10px;
+}
+
+/* .btn {
+    width: 20%;
+} */
+

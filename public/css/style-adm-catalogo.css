@@ -1,0 +1,10 @@
+.card-img {
+    width: 25%;
+    float: left;
+    margin: 10px;
+}
+
+.img-catalogo-itens {
+    width: 3%;
+    padding: 2px, 0px, 5px, 0px;
+}

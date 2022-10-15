@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat&family=Montserrat+Alternates:wght@600&family=Peralta&display=swap');
+.titulos {
+    font-family: 'Montserrat Alternates', sans-serif;
+}
+
+.textos {
+    font-family: 'Montserrat', sans-serif;
+}
+
+header,
+footer,
+.btn {
+    font-family: 'Lato', sans-serif;
+}

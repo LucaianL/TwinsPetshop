@@ -1,0 +1,23 @@
+html,
+body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.contato-loc {
+    vertical-align: top;
+}
+
+.equipe {
+    width: 15rem;
+    vertical-align: top;
+
+}
+
+.img-equipe {
+    height: auto;
+}
+
+.rodapé {
+    vertical-align: top;
+}
