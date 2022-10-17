@@ -16,8 +16,12 @@ router.get("/usuario/admin/produtos", adminAuth, (req, res) => {
 
 router.get("/usuario/admin/consultar_agendamentos", adminAuth, (req, res) => {
     Agendamento.findAll({ 
+        order: [
+            ['id', 'ASC']
+        ],
         include: [{model: Usuario}]
      }).then(agendamentos => {
+        Usuario.findAll().then(usuarios => {})
         res.render("usuarios/admin/adm_clienteAgendamento", {
             agendamentos: agendamentos,
 
