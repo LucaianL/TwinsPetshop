@@ -19,17 +19,18 @@ router.get("/usuario/admin/consultar_agendamentos", adminAuth, (req, res) => {
         order: [
             ['id', 'ASC']
         ],
-        include: [{ model: Usuario }]
-    }).then(agendamentos => {
-        Usuario.findAll().then(usuarios => {
-            res.render("usuarios/admin/adm_clienteAgendamento", {
-                agendamentos: agendamentos,
-                usuarios: usuarios
-            });
+        include: [{
+            model: Usuario
+        }]
+    }).then(data => {
+        let agendamentos = data.map(agendamento => {
+            const agend = agendamento.dataValues;
+            agend.usuario = agend.usuario.dataValues;
+            return agend;
         });
+        res.render("usuarios/admin/adm_clienteAgendamento", { agendamentos })
     });
 });
-
 router.get("/usuario/admin/cadastrar_produto", adminAuth, (req, res) => {
     res.render("usuarios/admin/adm_cadastrar");
 });

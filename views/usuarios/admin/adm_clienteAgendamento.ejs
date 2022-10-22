@@ -35,8 +35,8 @@
     <% agendamentos.forEach(agendamento => { %>
     <div class="card mx-auto w-50 my-4">
         <div class="card-body">
-            <p>Nome do cliente: <b></b> </p>
-            <p>Telefone: <b> </b> </p>
+            <p>Nome do cliente: <b> <%= agendamento.usuario.nome %> </b> </p>
+            <p>Telefone: <b> <%= agendamento.usuario.telefone %> </b> </p>
             <p>Tipo do pet: <b> <%= agendamento.tipoPet %> </b></p>
             <p>Nome do pet: <b><%= agendamento.nomePet %> </b></p>
             <p>Obs: <b><%= agendamento.observacoes %> </b></p>

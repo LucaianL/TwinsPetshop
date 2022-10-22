@@ -29,6 +29,10 @@ const Agendamento = connection.define('agendamentos', {
     horario: {
         type: Sequelize.STRING,
         allowNull: false
+    },
+    diaSemana:{
+        type: Sequelize.STRING,
+        allowNull: false
     }
 });
 
