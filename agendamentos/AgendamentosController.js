@@ -54,4 +54,25 @@ router.post("/agendamento", (req, res) => {
     });
 });
 
+router.post("/agendamento/deletar", (req, res) => {
+    var id = req.body.id
+
+    if (id != undefined) {
+        if (!isNaN(id)) {
+            Agendamento.destroy({
+                where: {
+                    id: id
+                }
+            }).then(() => {
+                res.redirect("/usuario/meusagendamentos");
+            });
+        } else { //não for um número
+            res.redirect("/usuario/meusagendamentos");
+        }
+    } else { //null
+        res.redirect("/usuario/meusagendamentos");
+    }
+
+});
+
 module.exports = router;

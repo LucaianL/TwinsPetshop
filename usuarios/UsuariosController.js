@@ -65,7 +65,7 @@ router.post("/entrar", (req, res) => {
                 if (usuario.admin == true) {
                     res.redirect('/usuario/admin/index');
                 } else {
-                res.redirect("/usuario/index");
+                res.redirect("/usuario/agendamento");
                 }
             } else {
                 res.redirect("/usuario/entrar");

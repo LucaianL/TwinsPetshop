@@ -29,56 +29,33 @@
             <div class="card w-50 mx-auto p-3">
                 <div class="textos">
                     <h3>
-                        <%= agendamento.horario %> <b>horas</b>
+                        <b>horário:</b> <%= agendamento.horario %>, <%= agendamento.diaSemana %>
                     </h3>
                     <h3>
                        <b>Serviço: </b> <%= agendamento.servico %>
                     </h3>
                 </div>
-                <div>
-                    <button class="btn btn-danger">Cancelar agendamento</button>
-                </div>
+                <form method="POST" action="/agendamento/deletar" onsubmit="confirmarDelecao(event, this)">
+                        <input type="hidden" name="id" value="<%= agendamento.id %>">
+                        <button class="btn btn-danger">Cancelar agendamento</button>
+                </form>
             </div>
             <br>
 
         <% }); %>
     </main>
 
-    <footer>
-        <div class="bg-secondary mb-0 mt-5 p-5 w-100">
-            <img src="img/logo-2.png" alt="" class="w-25 mt-0 mx-5 d-inline-block rodape">
+    <%- include('../../partials/footerSair.ejs'); %>
 
-            <div class="mx-5 d-inline-block">
-                <p class="p-1 fs-5 m-0"><a href="index.html" class="text-white text-decoration-none">Início</a></p>
-                <p class="p-1 fs-5 m-0"><a href="catalogo.html" class="text-white text-decoration-none">Catálogo</a>
-                    </li>
-                <p class="p-2 fs-5 m-0"><a href="agendamento.html"
-                        class="text-white text-decoration-none">Agendamento</a></p>
-                <p class="p-2 fs-5 m-0"><a href="doacao.html" class="text-white text-decoration-none">Doação</a></p>
-            </div>
-
-            <div class="text-white mx-5 d-inline-block rodape">
-                <p class="m-1">Dúvidas? Entre em contato:</p>
-                <div>
-                    <img src="img/o-email.svg" alt="" class="d-inline-block">
-                    <p class="m-1 d-inline-block">atendimento_twinspet@gmail.com</p>
-                </div>
-                <div>
-                    <img src="img/whatsapp.svg" alt="" class="d-inline-block">
-                    <p class="m-1 d-inline-block">(45) 991835401</p>
-                </div>
-                <div>
-                    <img src="img/telefone.svg" alt="" class="d-inline-block">
-                    <p class="m-1 d-inline-block">3559-7842</p>
-                </div>
-                <div>
-                    <img src="img/pin-de-localizacao.svg" alt="" class="d-inline-block">
-                    <p class="m-1 d-inline-block">3901, Rua João Paulo II, Itaipulândia-PR</p>
-                </div>
-            </div>
-
-        </div>
-    </footer>
+    <script>
+        function confirmarDelecao(event, form){
+            event.preventDefault();
+            var decisao = confirm("Você quer deletar esse agendamento?");
+            if(decisao){
+                form.submit();
+            }
+        }
+    </script>
 </body>
 
 </html>
