@@ -11,10 +11,16 @@ router.get("/usuario/agendamento", usuarioAuth, (req, res) => {
 });
 
 router.get("/usuario/meusagendamentos", usuarioAuth, (req, res) => {
-    
-    Agendamento.findAll({ 
-        include: [{model: Usuario}]
-     }).then(agendamentos => {
+    console.log(req.session.usuario);
+    Agendamento.findAll({
+        include: [{
+            model: Usuario,
+            where: [{
+                "id": req.session.usuario.id
+            }]
+        }]
+
+    }).then(agendamentos => {
         res.render("usuarios/cliente/meusagendamentos", {
             agendamentos: agendamentos,
 
@@ -28,7 +34,8 @@ router.post("/agendamento", (req, res) => {
     let servico = req.body.servico;
     let observacoes = req.body.observacoes;
     let horario = req.body.horario;
-    let idUsuario = req.body.usuario;
+    let diaSemana = req.body.diaSemana
+
 
     Agendamento.create({
         tipoPet: tipoPet,
@@ -36,7 +43,8 @@ router.post("/agendamento", (req, res) => {
         servico: servico,
         observacoes: observacoes,
         horario: horario,
-        idUsuario: idUsuario
+        idUsuario: req.session.usuario.id,
+        diaSemana: diaSemana
 
     }).then(() => {
         res.redirect("/usuario/meusagendamentos");

@@ -18,25 +18,28 @@
 </head>
 
 <body>
-    
+
     <%- include('../../partials/navbarSair.ejs'); %>
 
 
     <main>
         <h1 class="titulo text-center p-2 m-3">Meus Agendamentos</h1>
-        
 
-        <% agendamentos.forEach(agendamento => { %>
+        <% agendamentos.forEach(agendamento=> { %>
             <div class="card w-50 mx-auto p-3">
                 <div class="textos">
-                <h3><%= agendamento.horario %></h3>
-                <h3><%= agendamento.servico %></h3>
+                    <h3>
+                        <%= agendamento.horario %> <b>horas</b>
+                    </h3>
+                    <h3>
+                       <b>Serviço: </b> <%= agendamento.servico %>
+                    </h3>
+                </div>
+                <div>
+                    <button class="btn btn-danger">Cancelar agendamento</button>
+                </div>
             </div>
-            <div>
-                <button class="btn btn-danger">Cancelar agendamento</button>
-            </div>
-        </div>
-        <br>
+            <br>
 
         <% }); %>
     </main>
