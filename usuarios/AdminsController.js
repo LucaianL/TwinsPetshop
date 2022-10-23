@@ -51,5 +51,25 @@ router.get("/usuario/admin/dadosClientes", adminAuth, (req, res) => {
     });
 });
 
+router.post("/admin/agendamento/deletar", (req, res) => {
+    var id = req.body.id
+    if (id != undefined) {
+        if (!isNaN(id)) {
+            Agendamento.destroy({
+                where: {
+                    id: id
+                }
+
+            }).then(() => {
+                res.redirect("/usuario/admin/consultar_agendamentos");
+            });
+        } else { //não for um número
+            res.redirect("/usuario/admin/consultar_agendamentos");
+        }
+    } else { //null
+        res.redirect("/usuario/admin/consultar_agendamentos");
+    }
+
+});
 
 module.exports = router;

@@ -42,10 +42,22 @@
             <p>Obs: <b><%= agendamento.observacoes %> </b></p>
             <p>Serviço: <b><%= agendamento.servico %> </b></p>
             <p>Horário: <b><%= agendamento.horario %> </b></p>
+            <form method="POST" action="/admin/agendamento/deletar" onsubmit="confirmarDelecao(event, this)">
+                <input type="hidden" name="id" value="<%= agendamento.id %>">
+                <button class="btn btn-danger">Cancelar agendamento</button>
+            </form>
         </div>
     </div>
     <% }); %>
-
+    <script>
+        function confirmarDelecao(event, form){
+            event.preventDefault();
+            var decisao = confirm("Você quer deletar esse agendamento?");
+            if(decisao){
+                form.submit();
+            }
+        }
+    </script>
 </body>
 
 </html>
