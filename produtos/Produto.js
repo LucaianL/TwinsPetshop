@@ -16,6 +16,10 @@ const Produto = connection.define('produtos', {
         type: Sequelize.STRING,
         allowNull: false
     },
+    tipo: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
     preco: {
         type: Sequelize.STRING,
         allowNull: false
@@ -29,6 +33,6 @@ const Produto = connection.define('produtos', {
     }
 });
 
-// Agendamento.sync({ force: true });
+// Produto.sync({ force: true });
 
 module.exports = Produto; 

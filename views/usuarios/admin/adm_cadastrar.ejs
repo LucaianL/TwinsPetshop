@@ -21,35 +21,38 @@
         <div class="rounded p-2 bg-white">
             <a href="/usuario/admin/produtos"><button class="btn btn-lg btn-secondary m-2">Voltar</button></a>
             <h1 class="border-bottom border-primary p-2 text-center">Cadastrar novo produto:</h1>
-            <form>
+            <form action="/admin/adicionar-produto" method="POST" enctype="multipart/form-data">
                 <div class="text-start m-3">
                     <label for="nome_produto" class="form-label m-2">Nome do produto:</label>
-                    <input type="text" class="form-control w-50" id="nome_produto">
+                    <input name="nomeProduto" type="text" class="form-control w-50" id="nome_produto">
                 </div>
                 <div class="text-start m-3">
                     <label for="marca" class="form-label m-2">Marca:</label>
-                    <input type="text" class="form-control w-50" id="marca">
+                    <input name="marca" type="text" class="form-control w-50" id="marca">
                 </div>
                 <div class="text-start m-3">
                     <label for="tipo" class="form-label m-2">Tipo:</label>
-                    <input type="text" class="form-control w-50" id="tipo">
+                    <input name="tipo" type="text" class="form-control w-50" id="tipo">
                 </div>
                 <div class="text-start m-3">
                     <label for="preco" class="form-label m-2">Preço:</label>
-                    <input type="text" class="form-control w-50" id="preco">
+                    <input name="preco" type="text" class="form-control w-50" id="preco">
                 </div>
                 <div class="text-start m-3">
                     <label for="desc" class="form-label m-2">Descrição:</label>
-                    <input type="text" class="form-control w-50" id="desc">
+                    <input name="descricao" type="text" class="form-control w-50" id="desc">
                 </div>
-                <div class="text-start m-3">
-                    <label for="img" class="form-label m-2">Imagem:</label>
-                    <input type="file" class="form-control w-50" id="img">
-                </div>
+                
+                <!-- <form action="/upload-image" method="POST" enctype="multipart/form-data"> -->
+                    <div class="text-start m-3">
+                        <label for="img" class="form-label m-2">Imagem:</label>
+                        <input name="image" type="file" class="form-control w-50" id="img">
+                    </div>
+                    <div class="text-center">
+                        <button class="btn btn-success btn-lg">Cadastrar produto</button>
+                    </div>
+                <!-- </form> -->
 
-                <div class="text-center">
-                    <button class="btn btn-success btn-lg">Cadastrar produto</button>
-                </div>
             </form>
 
         </div>

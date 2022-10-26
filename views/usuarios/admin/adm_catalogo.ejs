@@ -35,6 +35,8 @@
         <button class="rounded p-1">Buscar</button>
     </div>
     <div class="p-3">
+    <% produtos.forEach(produto => { %>
+        
         <div class="card w-75 mx-auto">
             <div class="card-title">
                 <div class="m-1">
@@ -42,17 +44,21 @@
                     <a href="/usuario/admin/atualizar_produto"><img src="/img/editar.png" class="img-catalogo-itens"></a>
                 </div>
                 <div class="card-body">
-                    <img src="/img/logo-2.png" class="card-img d-inline" alt="imagem">
+                    <img src="/upload/<%= produto.image %>" class="card-img d-inline" alt="imagem" style="width: 300px; height: 200px">
                     <div class="d-inline-block p-2">
-                        <h5 class="card-title">Nome-produto</h5>
-                        <h6 class="card-subtitle p-1">Preço</h6>
-                        <h6 class="card-subtitle p-1">Marca</h6>
-                        <h6 class="card-subtitle p-1">Tipo</h6>
-                        <p class="card-text">descrição</p>
+                        
+                        <h5 class="card-title">Nome: <%= produto.nomeProduto %> </h5>
+                        <h6 class="card-subtitle p-1">Preço: <%= produto.nomeProduto %></h6>
+                        <h6 class="card-subtitle p-1">Marca: <%= produto.nomeProduto %></h6>
+                        <h6 class="card-subtitle p-1">Tipo: <%= produto.nomeProduto %></h6>
+                        <p class="card-text">descrição: <%= produto.nomeProduto %></p>
+
                     </div>
                 </div>
             </div>
         </div>
+        <br>
+    <% }); %>
     </div>
 </body>
 
