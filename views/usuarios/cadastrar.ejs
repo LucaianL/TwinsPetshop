@@ -36,14 +36,14 @@
                                 <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Crie sua conta</h5>
 
                                 <div class="form-floating mb-3">
-                                    <input name="nome" type="text" class="form-control" id="nome"
+                                    <input data-ls-module="charCounter" maxlength="20" name="nome" type="text" class="form-control" id="nome"
                                         placeholder="Digite seu nome completo" required>
                                     <label for="nome">Nome</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input name="cpf" type="text" class="form-control" id="cpf"
+                                    <input data-ls-module="charCounter" maxlength="11" name="cpf" type="text" class="form-control" id="cpf"
                                         placeholder="Digite seu CPF completo" minlength="14" maxlength="14"
-                                        title="Insira seu CPF com os pontos e traços" required>
+                                        title="Insira seu CPF sem pontos e traços" required>
                                     <label for="cpf">CPF</label>
                                 </div>
                                 <div name="estado" class="form-floating mb-3">
@@ -80,27 +80,27 @@
                                     <label for="estado">Estado</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input name="cidade" type="text" class="form-control" id="cidade"
+                                    <input data-ls-module="charCounter" maxlength="20" name="cidade" type="text" class="form-control" id="cidade"
                                         placeholder="Digite o nome da sua cidade" required>
                                     <label for="cidade">Cidade</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input name="rua" type="text" class="form-control" id="rua"
+                                    <input data-ls-module="charCounter" maxlength="20" name="rua" type="text" class="form-control" id="rua"
                                         placeholder="Digite o nome da sua rua" required>
                                     <label for="rua">Rua</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input name="telefone" type="text" class="form-control" id="telefone" placeholder="(00) 00000-0000"
+                                    <input data-ls-module="charCounter" maxlength="20" name="telefone" type="text" class="form-control" id="telefone" placeholder="(00) 00000-0000"
                                         required )>
                                     <label for="telefone">Telefone</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input name="email" type="email" class="form-control" id="email" placeholder="nome@exemplo.com"
+                                    <input data-ls-module="charCounter" maxlength="40" name="email" type="email" class="form-control" id="email" placeholder="nome@exemplo.com"
                                         required>
                                     <label for="email">Email</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input name="senha" type="password" class="form-control" id="senha"
+                                    <input data-ls-module="charCounter" maxlength="40" name="senha" type="password" class="form-control" id="senha"
                                         placeholder="Crie uma senha segura" minlength="8" required>
                                     <label for="senha">Senha</label>
                                 </div>

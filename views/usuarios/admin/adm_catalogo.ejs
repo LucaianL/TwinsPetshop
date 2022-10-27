@@ -35,11 +35,28 @@
         <input type="search" placeholder="Pesquise o nome do produto..." class="rounded w-25 p-1">
         <button class="rounded p-1">Buscar</button>
     </div>
-    <div class="p-3">
-        <% produtos.forEach(produto=> { %>
+    <% produtos.forEach(produto=> { %>
 
-            <div class="card w-75 mx-auto">
-                <div class="card-title">
+        <div class="card w-75 mx-auto">
+            <div class="card-body">
+
+                <img src="/upload/<%= produto.image %>" class="card-img d-inline" alt="imagem"
+                    style="width: 300px; height: 200px">
+                <div class="d-inline-block p-2">
+
+                    <h5 class="card-title">Nome: <%= produto.nomeProduto %>
+                    </h5>
+                    <h6 class="card-subtitle p-1">Preço: <%= produto.preco %>
+                    </h6>
+                    <h6 class="card-subtitle p-1">Marca: <%= produto.marca %>
+                    </h6>
+                    <h6 class="card-subtitle p-1">Tipo: <%= produto.tipo %>
+                    </h6>
+                    <p class="card-text">descrição: <%= produto.descricao %>
+                    </p>
+
+                </div>
+                <div class="d-inline">
                     <form class="d-inline" method="POST" action="/admin/produto/deletar"
                         onsubmit="confirmarDelecao(event, this)">
                         <input type="hidden" name="id" value="<%= produto.id %>">
@@ -50,43 +67,23 @@
                         <input type="hidden" name="id" value="<%= produto.id %>">
                         <input type="image" src="/img/editar.png" class="img-catalogo-itens m-1">
                     </form>
-
-                </div>
-
-                <div class="card-body">
-                    <img src="/upload/<%= produto.image %>" class="card-img d-inline" alt="imagem"
-                        style="width: 300px; height: 200px">
-                    <div class="d-inline-block p-2">
-
-                        <h5 class="card-title">Nome: <%= produto.nomeProduto %>
-                        </h5>
-                        <h6 class="card-subtitle p-1">Preço: <%= produto.preco %>
-                        </h6>
-                        <h6 class="card-subtitle p-1">Marca: <%= produto.marca %>
-                        </h6>
-                        <h6 class="card-subtitle p-1">Tipo: <%= produto.tipo %>
-                        </h6>
-                        <p class="card-text">descrição: <%= produto.descricao %>
-                        </p>
-
-                    </div>
                 </div>
             </div>
+        </div>
 
-    </div>
-    <br>
-    <% }); %>
-        <script>
-            function confirmarDelecao(event, form) {
-                event.preventDefault();
-                var decisao = confirm("Você deseja deletar esse produto?");
-                if (decisao) {
-                    form.submit();
+        <br>
+        <% }); %>
+            <script>
+                function confirmarDelecao(event, form) {
+                    event.preventDefault();
+                    var decisao = confirm("Você deseja deletar esse produto?");
+                    if (decisao) {
+                        form.submit();
+                    }
                 }
-            }
 
 
-        </script>
+            </script>
 </body>
 
 </html>
