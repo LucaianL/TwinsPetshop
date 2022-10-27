@@ -109,5 +109,44 @@ router.post("/admin/adicionar-produto", uploadImage.single('image'), async (req,
     });
 });
 
+router.post("/admin/produto/deletar", (req, res) => {
+    var id = req.body.id
+    if (id != undefined) {
+        if (!isNaN(id)) {
+            Produto.destroy({
+                where: {
+                    id: id
+                }
 
+            }).then(() => {
+                res.redirect("/usuario/admin/produtos");
+            });
+        } else { //não for um número
+            res.redirect("/usuario/admin/produtos");
+        }
+    } else { //null
+        res.redirect("/usuario/admin/produtos");
+    }
+
+    // var id = req.body.id
+
+    // if (!id) { //  null
+    //     res.redirect("/usuario/admin/produtos");
+    //     return
+    // }
+
+    // if (!isNaN(id)) { // não for um número
+    //     res.redirect("/usuario/admin/produtos");
+    //     return
+    // }
+
+    // Produto.destroy({
+    //     where: {
+    //         id: id
+    //     }
+
+    // }).then(() => {
+    //     res.redirect("/usuario/admin/produtos");
+    // });
+});
 module.exports = router;

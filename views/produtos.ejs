@@ -21,35 +21,47 @@
 </head>
 
 <body>
-    
+
     <%- include('partials/navbar.ejs'); %>
 
-    <main>
-        <h1 class="text-center p-3 titulos">Catálogo de produtos</h1>
+        <main>
+            <h1 class="text-center p-3 titulos">Catálogo de produtos</h1>
 
-        <div class="text-center gradient-custom p-3 mb-4 shadow textos">
-            <img src="img/procurar.svg" alt="icon buscar" id="img-busca">
-            <input type="search" placeholder="Busque o nome do produto..." class="rounded w-25 p-1">
-            <button class="rounded p-1 btn-buscar">Buscar</button>
-        </div>
-
-        <div class="p-3 textos">
-            <div class="card w-75 mx-auto">
-                <div class="card-body">
-                    <img src="img/logo-2.png" class="card-img d-inline" alt="imagem">
-                    <div class="d-inline-block p-2">
-                        <h5 class="card-title fw-bold">Nome-produto</h5>
-                        <h6 class="card-subtitle p-1">Marca</h6>
-                        <h6 class="card-subtitle p-1">Quantidade</h6>
-                        <h6 class="card-subtitle p-1">Data de validade</h6>
-                        <p class="card-text">descrição</p>
-                    </div>
-                </div>
+            <div class="text-center gradient-custom p-3 mb-4 shadow textos">
+                <img src="img/procurar.svg" alt="icon buscar" id="img-busca">
+                <input type="search" placeholder="Busque o nome do produto..." class="rounded w-25 p-1">
+                <button class="rounded p-1 btn-buscar">Buscar</button>
             </div>
-        </div>
-    </main>
 
-    <%- include('partials/footer.ejs'); %>
+            <div class="p-3 textos">
+
+                <% produtos.forEach(produto=> { %>
+                    <div class="card w-75 mx-auto">
+                        <div class="card-body">
+                            <img src="/upload/<%= produto.image %>" class="card-img d-inline" alt="imagem"
+                                style="width: 300px; height: 200px">
+                            <div class="d-inline-block p-2">
+
+                                <h5 class="card-title">Nome: <%= produto.nomeProduto %>
+                                </h5>
+                                <h6 class="card-subtitle p-1">Preço: <%= produto.preco %>
+                                </h6>
+                                <h6 class="card-subtitle p-1">Marca: <%= produto.marca %>
+                                </h6>
+                                <h6 class="card-subtitle p-1">Tipo: <%= produto.tipo %>
+                                </h6>
+                                <p class="card-text">descrição: <%= produto.descricao %>
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <br>
+            <% }); %>
+        </main>
+
+        <%- include('partials/footer.ejs'); %>
 
 </body>
 

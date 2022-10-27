@@ -8,6 +8,8 @@ const UsuariosController = require("./usuarios/UsuariosController");
 const AgendamentosController = require("./agendamentos/AgendamentosController");
 const AdminsController = require("./usuarios/AdminsController");
 
+const Produto = require("./produtos/Produto");
+
 // DIZ PARA O EXPRESS USAR EJS COMO VIEW ENGINE
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
@@ -31,7 +33,15 @@ app.get("/", (req, res) => {
 });
 
 app.get("/produtos", (req, res) => {
-    res.render("produtos");
+    Produto.findAll({
+        order: [
+            ['id', 'ASC']
+        ]
+    }).then(produtos => {
+        res.render("produtos", {
+            produtos: produtos
+        });
+    });
 });
 
 app.get("/servicos", (req, res) => {

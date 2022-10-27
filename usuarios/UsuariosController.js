@@ -1,10 +1,11 @@
 const express = require("express");
 const router = express.Router();
-const Usuario = require("./Usuario");
 
 const bcrypt = require("bcryptjs");
 const usuarioAuth = require("../middlewares/usuarioAuth");
 
+const Produto = require("../produtos/Produto")
+const Usuario = require("./Usuario");
 
 router.get("/usuario/cadastrar", (req, res) => {
     res.render("usuarios/cadastrar");
@@ -86,7 +87,15 @@ router.get("/usuario/doacao", usuarioAuth, (req, res) => {
 });
 
 router.get("/usuario/produtos", usuarioAuth, (req, res) => {
-    res.render("usuarios/cliente/produtos");
+    Produto.findAll({
+        order: [
+            ['id', 'ASC']
+        ]
+    }).then(produtos => {
+        res.render("usuarios/cliente/produtos", {
+            produtos: produtos
+        });
+    });
 });
 
 router.get("/usuario/servicos", usuarioAuth, (req, res) => {
