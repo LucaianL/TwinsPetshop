@@ -33,32 +33,37 @@
                 <button class="rounded p-1 btn-buscar">Buscar</button>
             </div>
 
-            <div class="textos">
+            <% produtos.forEach(produto=> { %>
+                <div class="textos">
 
-                <% produtos.forEach(produto=> { %>
                     <div class="card w-75 mx-auto">
                         <div class="card-body">
-                            <img src="/upload/<%= produto.image %>" class="card-img d-inline" alt="imagem"
+                            <img src="/upload/<%= produto.image %>" class="card-img d-inline " alt="imagem"
                                 style="width: 300px; height: 200px">
-                            <div class="d-inline-block p-2">
+                            <div class="d-inline">
 
-                                <h5 class="card-title">Nome: <%= produto.nomeProduto %>
+                                <h5 class="card-title p-1"><i>Nome:</i>
+                                    <%= produto.nomeProduto %>
                                 </h5>
-                                <h6 class="card-subtitle p-1">Preço: <%= produto.preco %>
+                                <h6 class="card-subtitle p-1"><i>Preço:</i>
+                                    <%= produto.preco %> <b>R$</b>
                                 </h6>
-                                <h6 class="card-subtitle p-1">Marca: <%= produto.marca %>
+                                <h6 class="card-subtitle p-1"><i>Marca:</i>
+                                    <%= produto.marca %>
                                 </h6>
-                                <h6 class="card-subtitle p-1">Tipo: <%= produto.tipo %>
+                                <h6 class="card-subtitle p-1"><i>Tipo:</i>
+                                    <%= produto.tipo %>
                                 </h6>
-                                <p class="card-text">descrição: <%= produto.descricao %>
-                                </p>
+                                <h6 class="card-text  p-1">
+                                    <%= produto.descricao %>
+                                </h6>
 
                             </div>
                         </div>
                     </div>
-            </div>
-            <br>
-            <% }); %>
+                </div>
+                <br>
+                <% }); %>
         </main>
 
         <%- include('partials/footer.ejs'); %>

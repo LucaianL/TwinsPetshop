@@ -41,7 +41,7 @@
             <p>Nome do pet: <b><%= agendamento.nomePet %> </b></p>
             <p>Obs: <b><%= agendamento.observacoes %> </b></p>
             <p>Serviço: <b><%= agendamento.servico %> </b></p>
-            <p>Horário: <b><%= agendamento.horario %> </b></p>
+            <p>Horário: <b><%= agendamento.horario %>h, <%= agendamento.diaSemana %></b></p>
             <form method="POST" action="/admin/agendamento/deletar" onsubmit="confirmarDelecao(event, this)">
                 <input type="hidden" name="id" value="<%= agendamento.id %>">
                 <button class="btn btn-danger">Cancelar agendamento</button>
