@@ -34,9 +34,9 @@
                 <button class="rounded p-1 btn-buscar">Buscar</button>
             </div>
 
-            <div class="textos">
+            <% produtos.forEach(produto=> { %>
+                <div class="textos">
 
-                <% produtos.forEach(produto=> { %>
                     <div class="card w-75 mx-auto">
                         <div class="card-body">
                             <img src="/upload/<%= produto.image %>" class="card-img d-inline" alt="imagem"
@@ -62,11 +62,11 @@
                             </div>
                         </div>
                     </div>
-            </div>
-            <br>
-            <% }); %>
+                </div>
+                <br>
 
                 </div>
+                <% }); %>
         </main>
 
         <%- include('../../partials/footerSair.ejs'); %>
