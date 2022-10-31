@@ -1,7 +1,7 @@
 const connection = require("../database/database");
 const Sequelize = require("sequelize");
 
-const Usuario = require("../usuarios/Usuario")
+const Usuario = require("../models/Usuario")
 
 const Agendamento = connection.define('agendamentos', {
     id: {

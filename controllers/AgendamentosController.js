@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
-const Usuario = require("../usuarios/Usuario");
-const Agendamento = require("./Agendamento");
+const Usuario = require("../models/Usuario");
+const Agendamento = require("../models/Agendamento");
 
 const usuarioAuth = require("../middlewares/usuarioAuth");
 

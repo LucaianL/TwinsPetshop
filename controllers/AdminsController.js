@@ -2,9 +2,9 @@ const express = require("express");
 const router = express.Router();
 const fetch = require("fetch");
 
-const Agendamento = require("../agendamentos/Agendamento");
-const Usuario = require("../usuarios/Usuario");
-const Produto = require("../produtos/Produto");
+const Agendamento = require("../models/Agendamento");
+const Usuario = require("../models/Usuario");
+const Produto = require("../models/Produto");
 
 const adminAuth = require("../middlewares/adminAuth");
 const uploadImage = require("../middlewares/uploadImage");

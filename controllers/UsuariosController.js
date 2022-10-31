@@ -4,8 +4,8 @@ const router = express.Router();
 const bcrypt = require("bcryptjs");
 const usuarioAuth = require("../middlewares/usuarioAuth");
 
-const Produto = require("../produtos/Produto")
-const Usuario = require("./Usuario");
+const Produto = require("../models/Produto")
+const Usuario = require("../models/Usuario");
 
 router.get("/usuario/cadastrar", (req, res) => {
     res.render("usuarios/cadastrar");

@@ -4,11 +4,11 @@ const app = express();
 const bodyParser = require("body-parser");
 const session = require("express-session");
 
-const UsuariosController = require("./usuarios/UsuariosController");
-const AgendamentosController = require("./agendamentos/AgendamentosController");
-const AdminsController = require("./usuarios/AdminsController");
+const UsuariosController = require("./controllers/UsuariosController");
+const AgendamentosController = require("./controllers/AgendamentosController");
+const AdminsController = require("./controllers/AdminsController");
 
-const Produto = require("./produtos/Produto");
+const Produto = require("./models/Produto");
 
 // DIZ PARA O EXPRESS USAR EJS COMO VIEW ENGINE
 app.set('view engine', 'ejs');
