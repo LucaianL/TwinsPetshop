@@ -67,11 +67,9 @@
                         <input type="hidden" name="id" value="<%= produto.id %>">
                         <input type="image" src="/img/excluir.png" class="img-catalogo-itens m-1">
                     </form>
-                    <form class="d-inline" method="POST" action="/admin/produto/deletar"
-                        onsubmit="confirmarDelecao(event, this)">
-                        <input type="hidden" name="id" value="<%= produto.id %>">
+                    <a href="/admin/produto/editar/<%= produto.id %>">
                         <input type="image" src="/img/editar.png" class="img-catalogo-itens m-1">
-                    </form>
+                    </a>
                 </div>
             </div>
         </div>

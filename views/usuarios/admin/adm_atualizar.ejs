@@ -21,32 +21,40 @@
         <div class="rounded p-2 bg-white">
             <a href="/usuario/admin/produtos"><button class="btn btn-lg btn-secondary m-2">Voltar</button></a>
             <h1 class="border-bottom border-primary p-2 text-center">Atualizar produto:</h1>
-            <form>
+            
+            <form action="/produto/editar" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="id" value="<%= produto.id %>">
                 <div class="text-start m-3">
                     <label for="nome_produto" class="form-label m-2">Nome do produto:</label>
-                    <input data-ls-module="charCounter" maxlength="20" type="text" class="form-control w-50" id="nome_produto">
+                    <input value="<%= produto.nomeProduto %>" data-ls-module="charCounter" maxlength="20"
+                        name="nomeProduto" type="text" class="form-control w-50" id="nome_produto">
                 </div>
                 <div class="text-start m-3">
                     <label for="marca" class="form-label m-2">Marca:</label>
-                    <input data-ls-module="charCounter" maxlength="20" type="text" class="form-control w-50" id="marca">
+                    <input value="<%= produto.marca %>" data-ls-module="charCounter" maxlength="20" name="marca"
+                        type="text" class="form-control w-50" id="marca">
                 </div>
                 <div class="text-start m-3">
                     <label for="tipo" class="form-label m-2">Tipo:</label>
-                    <input data-ls-module="charCounter" maxlength="20" type="text" class="form-control w-50" id="tipo">
+                    <input value="<%= produto.tipo %>" data-ls-module="charCounter" maxlength="20"
+                        data-ls-module="charCounter" maxlength="20" name="tipo" type="text" class="form-control w-50"
+                        id="tipo">
                 </div>
                 <div class="text-start m-3">
                     <label for="preco" class="form-label m-2">Preço:</label>
-                    <input data-ls-module="charCounter" maxlength="5" type="text" class="form-control w-50" id="preco">
+                    <input value="<%= produto.preco %>" data-ls-module="charCounter" maxlength="5" name="preco"
+                        type="text" class="form-control w-50" id="preco">
                 </div>
                 <div class="text-start m-3">
                     <label for="desc" class="form-label m-2">Descrição:</label>
-                    <input data-ls-module="charCounter" maxlength="80" type="text" class="form-control w-50" id="desc">
-                </div>
-                <div class="text-start m-3">
-                    <label for="img" class="form-label m-2">Imagem:</label>
-                    <input type="file" class="form-control w-50" id="img">
+                    <input value="<%= produto.descricao %>" data-ls-module="charCounter" maxlength="100"
+                        name="descricao" type="text" class="form-control w-50" id="desc">
                 </div>
 
+                <div class="text-start m-3">
+                    <label for="img" class="form-label m-2">Imagem:</label>
+                    <input value="<%= produto.image %>" name="image" type="file" class="form-control w-50" id="img">
+                </div>
                 <div class="text-center">
                     <button class="btn btn-success btn-lg">Atualizar produto</button>
                 </div>

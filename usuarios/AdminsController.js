@@ -46,10 +46,6 @@ router.get("/usuario/admin/cadastrar_produto", adminAuth, (req, res) => {
     res.render("usuarios/admin/adm_cadastrar");
 });
 
-router.get("/usuario/admin/atualizar_produto", adminAuth, (req, res) => {
-    res.render("usuarios/admin/adm_atualizar");
-});
-
 router.get("/usuario/admin/dadosClientes", adminAuth, (req, res) => {
     Usuario.findAll({
         order: [
@@ -148,5 +144,40 @@ router.post("/admin/produto/deletar", (req, res) => {
     // }).then(() => {
     //     res.redirect("/usuario/admin/produtos");
     // });
+});
+
+router.get("/admin/produto/editar/:id", adminAuth, (req, res) => {
+    var id = req.params.id;
+    if (isNaN(id)) {
+        res.redirect("/usuario/admin/produtos");
+    }
+    Produto.findByPk(id).then(produto => {
+        if (produto != undefined) {
+            res.render("usuarios/admin/adm_atualizar", { produto: produto });
+        } else {
+            res.redirect("/usuario/admin/produtos");
+        }
+    }).catch(err => {
+        res.redirect("/usuario/admin/produtos");
+    });
+});
+
+router.post("/produto/editar", uploadImage.single('image'), (req, res) => {
+    const { id, nomeProduto, marca, tipo, preco, descricao } = req.body
+
+    Produto.update({
+        nomeProduto: nomeProduto,
+        marca: marca,
+        tipo: tipo,
+        preco: preco,
+        descricao: descricao,
+        image: req.file.filename
+    }, {
+        where: {
+            id: id
+        }
+    }).then(() => {
+        res.redirect("/usuario/admin/produtos");
+    })
 });
 module.exports = router;
