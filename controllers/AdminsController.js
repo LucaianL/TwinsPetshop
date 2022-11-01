@@ -13,14 +13,14 @@ router.get("/usuario/admin/index", adminAuth, (req, res) => {
     res.render("usuarios/admin/adm_index");
 });
 
-router.get("/usuario/admin/produtos", adminAuth, (req, res) => {
-    Produto.findAll({
+router.get("/usuario/admin/dadosClientes", adminAuth, (req, res) => {
+    Usuario.findAll({
         order: [
             ['id', 'DESC']
         ]
-    }).then(produtos => {
-        res.render("usuarios/admin/adm_catalogo", {
-            produtos: produtos
+    }).then(usuarios => {
+        res.render("usuarios/admin/adm_dados_cli", {
+            usuarios: usuarios
         });
     });
 });
@@ -42,51 +42,24 @@ router.get("/usuario/admin/consultar_agendamentos", adminAuth, (req, res) => {
         res.render("usuarios/admin/adm_clienteAgendamento", { agendamentos })
     });
 });
+
+// PRODUTOS
 router.get("/usuario/admin/cadastrar_produto", adminAuth, (req, res) => {
     res.render("usuarios/admin/adm_cadastrar");
 });
 
-router.get("/usuario/admin/dadosClientes", adminAuth, (req, res) => {
-    Usuario.findAll({
+router.get("/usuario/admin/produtos", adminAuth, (req, res) => {
+    Produto.findAll({
         order: [
             ['id', 'DESC']
         ]
-    }).then(usuarios => {
-        res.render("usuarios/admin/adm_dados_cli", {
-            usuarios: usuarios
+    }).then(produtos => {
+        res.render("usuarios/admin/adm_catalogo", {
+            produtos: produtos
         });
     });
 });
 
-router.post("/admin/agendamento/deletar", (req, res) => {
-    var id = req.body.id
-    if (id != undefined) {
-        if (!isNaN(id)) {
-            Agendamento.destroy({
-                where: {
-                    id: id
-                }
-
-            }).then(() => {
-                res.redirect("/usuario/admin/consultar_agendamentos");
-            });
-        } else { //não for um número
-            res.redirect("/usuario/admin/consultar_agendamentos");
-        }
-    } else { //null
-        res.redirect("/usuario/admin/consultar_agendamentos");
-    }
-
-});
-
-// router.post("/upload-image", uploadImage.single('image'), async (req, res) => {
-//     if (req.file) {
-//         res.redirect("/usuario/admin/produtos");
-//     } else {
-//         res.redirect("/usuario/admin/index");
-//     }
-
-// });
 router.post("/admin/adicionar-produto", uploadImage.single('image'), async (req, res) => {
     const { nomeProduto, marca, tipo, preco, descricao } = req.body
 
@@ -123,27 +96,6 @@ router.post("/admin/produto/deletar", (req, res) => {
     } else { //null
         res.redirect("/usuario/admin/produtos");
     }
-
-    // var id = req.body.id
-
-    // if (!id) { //  null
-    //     res.redirect("/usuario/admin/produtos");
-    //     return
-    // }
-
-    // if (!isNaN(id)) { // não for um número
-    //     res.redirect("/usuario/admin/produtos");
-    //     return
-    // }
-
-    // Produto.destroy({
-    //     where: {
-    //         id: id
-    //     }
-
-    // }).then(() => {
-    //     res.redirect("/usuario/admin/produtos");
-    // });
 });
 
 router.get("/admin/produto/editar/:id", adminAuth, (req, res) => {
@@ -180,4 +132,6 @@ router.post("/produto/editar", uploadImage.single('image'), (req, res) => {
         res.redirect("/usuario/admin/produtos");
     })
 });
+
+
 module.exports = router;

@@ -6,6 +6,7 @@ const Agendamento = require("../models/Agendamento");
 
 const usuarioAuth = require("../middlewares/usuarioAuth");
 
+
 router.get("/usuario/agendamento", usuarioAuth, (req, res) => {
     res.render("usuarios/cliente/agendamento")
 });
@@ -62,7 +63,7 @@ router.post("/agendamento/deletar", (req, res) => {
                 where: {
                     id: id
                 }
-                
+
             }).then(() => {
                 res.redirect("/usuario/meusagendamentos");
             });
@@ -75,4 +76,24 @@ router.post("/agendamento/deletar", (req, res) => {
 
 });
 
+router.post("/admin/agendamento/deletar", (req, res) => {
+    var id = req.body.id
+    if (id != undefined) {
+        if (!isNaN(id)) {
+            Agendamento.destroy({
+                where: {
+                    id: id
+                }
+
+            }).then(() => {
+                res.redirect("/usuario/admin/consultar_agendamentos");
+            });
+        } else { //não for um número
+            res.redirect("/usuario/admin/consultar_agendamentos");
+        }
+    } else { //null
+        res.redirect("/usuario/admin/consultar_agendamentos");
+    }
+
+});
 module.exports = router;
