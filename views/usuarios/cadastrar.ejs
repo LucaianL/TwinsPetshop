@@ -104,6 +104,7 @@
                                         class="form-control" id="senha" placeholder="Crie uma senha segura"
                                         minlength="8" required>
                                     <label for="senha">Senha</label>
+                                    <input type="checkbox" onclick="mostrarsenha()"> Mostrar senha
                                 </div>
                             </div>
                             <div class="d-grid gap-2">
@@ -121,6 +122,16 @@
             </div>
         </div>
     </div>
+    <script>
+        function mostrarsenha() {
+            var x = document.getElementById("senha");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+    </script>
 </body>
 
 </html>

@@ -47,6 +47,7 @@
                       <input name="senha" type="password" class="form-control" id="senha"
                         placeholder="Insira sua senha">
                       <label for="floatingPassword">Senha</label>
+                      <input type="checkbox" onclick="mostrarsenha()"> Mostrar senha
                     </div>
                     <br>
                   </div>
@@ -68,6 +69,16 @@
       </div>
     </div>
   </div>
+  <script>
+    function mostrarsenha() {
+      var x = document.getElementById("senha");
+      if (x.type === "password") {
+        x.type = "text";
+      } else {
+        x.type = "password";
+      }
+    }
+  </script>
 </body>
 
 </html>
