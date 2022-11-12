@@ -37,6 +37,7 @@
                 <div class="d-inline-block">
                     <label for="tipo-pet" class="form-label">Tipo do Pet:</label>
                     <select name="tipoPet" id="tipo-pet" class="form-select">
+                        <option value="<%= agendamento.tipoPet %>"><%= agendamento.tipoPet %></option>
                         <option value="cachorro">Cachorro</option>
                         <option value="gato">Gato</option>
                     </select>
@@ -51,6 +52,7 @@
                 <div class="d-inline-block">
                     <label for="servico" class="form-label">Serviço:</label>
                     <select name="servico" id="servico" class="form-select">
+                        <option value="<%= agendamento.servico %>"><%= agendamento.servico %></option>
                         <option value="banho">Banho</option>
                         <option value="tosa">Tosa</option>
                         <option value="tosa + banho">Tosa + Banho</option>
