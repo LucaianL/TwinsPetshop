@@ -19,7 +19,15 @@
 </head>
 
 <body>
+    <div class="bg-dark shadow">
+        <div class="d-inline-block">
+        <a href="/usuario/admin/consultar_agendamentos"><button class="btn btn-lg btn-secondary m-2">Voltar</button></a>
 
+        </div>
+        <div class="d-inline-block">
+            <h1 class="fs-2 p-3 text-white m-3">Editar agendamentos</h1>
+        </div>
+    </div>
     <main>
         <h1 class="text-center p-2 m-3 titulos">Agendamento de serviços</h1>
         <form method="POST" action="/admin/agendamento/editar" class="textos">
@@ -36,7 +44,8 @@
 
                 <div class="d-inline-block">
                     <label for="nome-pet" class="form-label">Nome do Pet:</label>
-                    <input value="<%= agendamento.nomePet %>" data-ls-module="charCounter" maxlength="20" name="nomePet" type="text" class="form-control" id="nome-pet">
+                    <input value="<%= agendamento.nomePet %>" data-ls-module="charCounter" maxlength="20" name="nomePet"
+                        type="text" class="form-control" id="nome-pet">
                 </div>
 
                 <div class="d-inline-block">
@@ -51,15 +60,16 @@
 
                 <div class="d-inline-block w-50">
                     <label for="obs-pet" class="form-label">Observações:</label>
-                    <input value="<%= agendamento.observacoes %>" data-ls-module="charCounter" maxlength="80" name="observacoes" type="text" class="form-control w-100" id="obs-pet">
+                    <input value="<%= agendamento.observacoes %>" data-ls-module="charCounter" maxlength="80"
+                        name="observacoes" type="text" class="form-control w-100" id="obs-pet">
                 </div>
             </div>
-            <input type="hidden" value="segunda" id="dia-semana" name="diaSemana" >
+            <input type="hidden" value="segunda" id="dia-semana" name="diaSemana">
             <div id="d-semana">
                 <p class="text-center">
                     <label class="form-label">Escolha o horário de preferência:</label> <br>
                     <button class="btn btn-success btn-sm mx-3 px-3 btn-semana" type="button" data-semana="segunda"
-                      aria-expanded="true" aria-controls="segunda">Segunda-Feira</button>
+                        aria-expanded="true" aria-controls="segunda">Segunda-Feira</button>
                     <button class="btn btn-success btn-sm mx-3 px-3 btn-semana" type="button" data-semana="terça"
                         aria-expanded="false" aria-controls="terca">Terça-Feira</button>
                     <button class="btn btn-success btn-sm mx-3 px-3 btn-semana" type="button" data-semana="quarta"
@@ -70,9 +80,9 @@
                         aria-expanded="false" aria-controls="sexta">Sexta-Feira</button>
                 </p>
 
-                <div >
+                <div>
                     <div class="text-center">
-                        <h3 class="gradient-custom p-1 shadow-sm" id="dia-da-semana" >Segunda-Feira</h3>
+                        <h3 class="gradient-custom p-1 shadow-sm" id="dia-da-semana">Segunda-Feira</h3>
                         <div class="d-inline-block px-5">
                             <h3>Horários disponíveis &bull; Manhã</h3>
                             <div>
@@ -114,11 +124,11 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="text-center">
                 <button type="submit" class="btn btn-primary btn-lg m-3 px-5">Agendar</button>
             </div>
-            
+
         </form>
     </main>
 
@@ -128,13 +138,13 @@
         const diaSemana = document.getElementById("dia-semana");
 
         console.log(botoes);
-    
+
         botoes.forEach(botao => {
-            botao.addEventListener("click", () =>{
+            botao.addEventListener("click", () => {
                 dia.innerText = botao.innerText
                 diaSemana.value = botao.dataset.semana
                 console.log(diaSemana);
-            } )
+            })
 
         });
 
@@ -143,4 +153,5 @@
         radioBtn.checked = false
     </script>
 </body>
+
 </html>
