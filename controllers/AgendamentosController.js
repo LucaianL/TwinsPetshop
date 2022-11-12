@@ -5,6 +5,8 @@ const Usuario = require("../models/Usuario");
 const Agendamento = require("../models/Agendamento");
 
 const usuarioAuth = require("../middlewares/usuarioAuth");
+const adminAuth = require("../middlewares/adminAuth");
+
 
 
 router.get("/usuario/agendamento", usuarioAuth, (req, res) => {
@@ -36,7 +38,6 @@ router.post("/agendamento", (req, res) => {
     let observacoes = req.body.observacoes;
     let horario = req.body.horario;
     let diaSemana = req.body.diaSemana
-
 
     Agendamento.create({
         tipoPet: tipoPet,
@@ -96,4 +97,34 @@ router.post("/admin/agendamento/deletar", (req, res) => {
     }
 
 });
+
+// ADMIN
+router.get("/admin/adicionarAgendamento", adminAuth, (req, res) =>{
+    res.render("usuarios/admin/adm_adicionarAgendamento");
+})
+
+router.post("/admin/agendamento", (req, res) => {
+    let tipoPet = req.body.tipoPet;
+    let nomePet = req.body.nomePet;
+    let servico = req.body.servico;
+    let observacoes = req.body.observacoes;
+    let horario = req.body.horario;
+    let diaSemana = req.body.diaSemana
+
+    Agendamento.create({
+        tipoPet: tipoPet,
+        nomePet: nomePet,
+        servico: servico,
+        observacoes: observacoes,
+        horario: horario,
+        idUsuario: req.session.usuario.id,
+        diaSemana: diaSemana
+
+    }).then(() => {
+        res.redirect("/usuario/admin/consultar_agendamentos");
+    }).catch((err) => {
+        // console.log(err);
+        res.redirect("/");
+    });
+})
 module.exports = router;

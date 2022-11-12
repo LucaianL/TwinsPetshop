@@ -52,6 +52,10 @@ app.get("/doacao", (req, res) => {
     res.render("doacao");
 });
 
+app.get("/entrarLogado", (req, res) => {
+    res.render("entrarLogado");
+});
+
 connection.authenticate().then(() => {
     console.log("Conexão feita com o banco de dados"); // Se conectar com sucesso mostra o console.log
 })

@@ -19,12 +19,10 @@
 </head>
 
 <body>
-    <%- include('../../partials/navbarSair.ejs'); %>
-
 
     <main>
         <h1 class="text-center p-2 m-3 titulos">Agendamento de serviços</h1>
-        <form method="POST" action="/agendamento" class="textos">
+        <form method="POST" action="/admin/agendamento" class="textos">
             <div class="text-center p-2 my-4">
                 <div class="d-inline-block">
                     <label for="tipo-pet" class="form-label">Tipo do Pet:</label>
@@ -116,18 +114,11 @@
             </div>
             
             <div class="text-center">
-                <img src="/img/alert-triangle.svg" class="d-inline-block p-1">
-                <p class="d-inline-block text-danger fst-italic msg-info">Após clicar no botão "Agendar" enviaremos uma mensagem para seu contato
-                    informado para a confirmação do horário! <br> (A mensagem será enviada apenas em horário comercial)</p>
-            </div>
-            <div class="text-center">
                 <button type="submit" class="btn btn-primary btn-lg m-3 px-5">Agendar</button>
             </div>
             
         </form>
     </main>
-
-    <%- include('../../partials/footerSair.ejs'); %>
 
     <script>
         const botoes = Array.from(document.getElementsByClassName("btn-semana"));
