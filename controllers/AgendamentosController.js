@@ -99,7 +99,7 @@ router.post("/admin/agendamento/deletar", (req, res) => {
 });
 
 // ADMIN
-router.get("/admin/adicionarAgendamento", adminAuth, (req, res) =>{
+router.get("/admin/adicionarAgendamento", adminAuth, (req, res) => {
     res.render("usuarios/admin/adm_adicionarAgendamento");
 })
 
@@ -127,4 +127,41 @@ router.post("/admin/agendamento", (req, res) => {
         res.redirect("/");
     });
 })
+
+router.get("/admin/agendamento/editar/:id", adminAuth, (req, res) => {
+    var id = req.params.id;
+    if (isNaN(id)) {
+        res.redirect("/admin/adicionarAgendamento");
+    }
+    Agendamento.findByPk(id).then(agendamento => {
+        if (agendamento != undefined) {
+            res.render("usuarios/admin/adm_editarAgendamento", { agendamento: agendamento });
+        } else {
+            res.redirect("/admin/adicionarAgendamento");
+        }
+    }).catch(err => {
+        res.redirect("/usuario/admin/produtos");
+    });
+})
+
+router.post("/admin/agendamento/editar", (req, res) => {
+    const { id, tipoPet, nomePet, servico, observacoes, horario, diaSemana } = req.body
+
+    Agendamento.update({
+        tipoPet: tipoPet,
+        nomePet: nomePet,
+        servico: servico,
+        observacoes: observacoes,
+        horario: horario,
+        diaSemana: diaSemana
+    }, {
+        where: {
+            id: id
+        }
+    }).then(() => {
+        res.redirect("/usuario/admin/consultar_agendamentos");
+    })
+});
+
+
 module.exports = router;

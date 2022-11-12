@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento Twins Petshop - Tudo para o seu pet!</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/style-agendamento.css">
+    <link rel="stylesheet" href="/css/style-menu.css">
+    <link rel="stylesheet" href="/css/style-fonts.css">
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+
+    <main>
+        <h1 class="text-center p-2 m-3 titulos">Agendamento de serviços</h1>
+        <form method="POST" action="/admin/agendamento/editar" class="textos">
+            <input type="hidden" name="id" value="<%= agendamento.id %>">
+
+            <div class="text-center p-2 my-4">
+                <div class="d-inline-block">
+                    <label for="tipo-pet" class="form-label">Tipo do Pet:</label>
+                    <select name="tipoPet" id="tipo-pet" class="form-select">
+                        <option value="cachorro">Cachorro</option>
+                        <option value="gato">Gato</option>
+                    </select>
+                </div>
+
+                <div class="d-inline-block">
+                    <label for="nome-pet" class="form-label">Nome do Pet:</label>
+                    <input value="<%= agendamento.nomePet %>" data-ls-module="charCounter" maxlength="20" name="nomePet" type="text" class="form-control" id="nome-pet">
+                </div>
+
+                <div class="d-inline-block">
+                    <label for="servico" class="form-label">Serviço:</label>
+                    <select name="servico" id="servico" class="form-select">
+                        <option value="banho">Banho</option>
+                        <option value="tosa">Tosa</option>
+                        <option value="tosa + banho">Tosa + Banho</option>
+                        <option value="higienização">Higienização completa</option>
+                    </select>
+                </div>
+
+                <div class="d-inline-block w-50">
+                    <label for="obs-pet" class="form-label">Observações:</label>
+                    <input value="<%= agendamento.observacoes %>" data-ls-module="charCounter" maxlength="80" name="observacoes" type="text" class="form-control w-100" id="obs-pet">
+                </div>
+            </div>
+            <input type="hidden" value="segunda" id="dia-semana" name="diaSemana" >
+            <div id="d-semana">
+                <p class="text-center">
+                    <label class="form-label">Escolha o horário de preferência:</label> <br>
+                    <button class="btn btn-success btn-sm mx-3 px-3 btn-semana" type="button" data-semana="segunda"
+                      aria-expanded="true" aria-controls="segunda">Segunda-Feira</button>
+                    <button class="btn btn-success btn-sm mx-3 px-3 btn-semana" type="button" data-semana="terça"
+                        aria-expanded="false" aria-controls="terca">Terça-Feira</button>
+                    <button class="btn btn-success btn-sm mx-3 px-3 btn-semana" type="button" data-semana="quarta"
+                        aria-expanded="false" aria-controls="quarta">Quarta-Feira</button>
+                    <button class="btn btn-success btn-sm mx-3 px-3 btn-semana" type="button" data-semana="quinta"
+                        aria-expanded="false" aria-controls="quinta">Quinta-Feira</button>
+                    <button class="btn btn-success btn-sm mx-3 px-3 btn-semana" type="button" data-semana="sexta"
+                        aria-expanded="false" aria-controls="sexta">Sexta-Feira</button>
+                </p>
+
+                <div >
+                    <div class="text-center">
+                        <h3 class="gradient-custom p-1 shadow-sm" id="dia-da-semana" >Segunda-Feira</h3>
+                        <div class="d-inline-block px-5">
+                            <h3>Horários disponíveis &bull; Manhã</h3>
+                            <div>
+                                <input type="radio" name="horario" id="8h" value="08">
+                                <label for="8h">08:00</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="horario" id="9h" value="09">
+                                <label for="9h">09:00</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="horario" id="10h" value="10">
+                                <label for="10h">10:00</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="horario" id="11h" value="11">
+                                <label for="11h">11:00</label>
+                            </div>
+                        </div>
+                        <div class="d-inline-block px-5">
+                            <h3>Horários disponíveis &bull; Tarde</h3>
+                            <div>
+                                <input type="radio" name="horario" id="14h" value="14">
+                                <label for="14h">14:00</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="horario" id="15h" value="15">
+                                <label for="15h">15:00</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="horario" id="16h" value="16">
+                                <label for="16h">16:00</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="horario" id="17h" value="17">
+                                <label for="17h">17:00</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary btn-lg m-3 px-5">Agendar</button>
+            </div>
+            
+        </form>
+    </main>
+
+    <script>
+        const botoes = Array.from(document.getElementsByClassName("btn-semana"));
+        const dia = document.getElementById("dia-da-semana");
+        const diaSemana = document.getElementById("dia-semana");
+
+        console.log(botoes);
+    
+        botoes.forEach(botao => {
+            botao.addEventListener("click", () =>{
+                dia.innerText = botao.innerText
+                diaSemana.value = botao.dataset.semana
+                console.log(diaSemana);
+            } )
+
+        });
+
+
+        const radioBtn = document.querySelector("#my-radio")
+        radioBtn.checked = false
+    </script>
+</body>
+</html>
