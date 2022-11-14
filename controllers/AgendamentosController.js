@@ -32,12 +32,7 @@ router.get("/usuario/meusagendamentos", usuarioAuth, (req, res) => {
 });
 
 router.post("/agendamento", (req, res) => {
-    let tipoPet = req.body.tipoPet;
-    let nomePet = req.body.nomePet;
-    let servico = req.body.servico;
-    let observacoes = req.body.observacoes;
-    let horario = req.body.horario;
-    let diaSemana = req.body.diaSemana
+    const { tipoPet, nomePet, servico, observacoes, horario, diaSemana } = req.body
 
     Agendamento.create({
         tipoPet: tipoPet,
@@ -104,12 +99,7 @@ router.get("/admin/adicionarAgendamento", adminAuth, (req, res) => {
 })
 
 router.post("/admin/agendamento", (req, res) => {
-    let tipoPet = req.body.tipoPet;
-    let nomePet = req.body.nomePet;
-    let servico = req.body.servico;
-    let observacoes = req.body.observacoes;
-    let horario = req.body.horario;
-    let diaSemana = req.body.diaSemana
+    const { tipoPet, nomePet, servico, observacoes, horario, diaSemana } = req.body
 
     Agendamento.create({
         tipoPet: tipoPet,
