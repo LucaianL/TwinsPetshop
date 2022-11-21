@@ -27,33 +27,33 @@
                 <div class="text-start m-3">
                     <label for="nome_produto" class="form-label m-2">Nome do produto:</label>
                     <input value="<%= produto.nomeProduto %>" data-ls-module="charCounter" maxlength="20"
-                        name="nomeProduto" type="text" class="form-control w-50" id="nome_produto">
+                        name="nomeProduto" type="text" class="form-control w-50" id="nome_produto" required>
                 </div>
                 <div class="text-start m-3">
                     <label for="marca" class="form-label m-2">Marca:</label>
                     <input value="<%= produto.marca %>" data-ls-module="charCounter" maxlength="20" name="marca"
-                        type="text" class="form-control w-50" id="marca">
+                        type="text" class="form-control w-50" id="marca" required>
                 </div>
                 <div class="text-start m-3">
                     <label for="tipo" class="form-label m-2">Tipo:</label>
                     <input value="<%= produto.tipo %>" data-ls-module="charCounter" maxlength="20"
                         data-ls-module="charCounter" maxlength="20" name="tipo" type="text" class="form-control w-50"
-                        id="tipo">
+                        id="tipo" required>
                 </div>
                 <div class="text-start m-3">
                     <label for="preco" class="form-label m-2">Preço:</label>
                     <input value="<%= produto.preco %>" data-ls-module="charCounter" maxlength="5" name="preco"
-                        type="text" class="form-control w-50" id="preco">
+                        type="text" class="form-control w-50" id="preco" required>
                 </div>
                 <div class="text-start m-3">
                     <label for="desc" class="form-label m-2">Descrição:</label>
                     <input value="<%= produto.descricao %>" data-ls-module="charCounter" maxlength="100"
-                        name="descricao" type="text" class="form-control w-50" id="desc">
+                        name="descricao" type="text" class="form-control w-50" id="desc" required >
                 </div>
 
                 <div class="text-start m-3">
                     <label for="img" class="form-label m-2">Imagem:</label>
-                    <input value="<%= produto.image %>" name="image" type="file" class="form-control w-50" id="img">
+                    <input value="<%= produto.image %>" name="image" type="file" class="form-control w-50" id="img" required>
                 </div>
                 <div class="text-center">
                     <button class="btn btn-success btn-lg">Atualizar produto</button>
